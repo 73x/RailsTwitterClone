@@ -17,3 +17,6 @@
 
 /coverage
 /screenshot
+
+# ignore /ruby
+/ruby
