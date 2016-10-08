@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725142845) do
+ActiveRecord::Schema.define(version: 20161008060112) do
+
+  create_table "exchanges", force: :cascade do |t|
+    t.integer  "view_type"
+    t.integer  "src_user_id"
+    t.integer  "dest_user_id"
+    t.integer  "src_tweet_id"
+    t.integer  "dest_tweet_id"
+    t.integer  "view_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -29,6 +40,9 @@ ActiveRecord::Schema.define(version: 20140725142845) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hidden_content"
+    t.integer  "view_price"
+    t.integer  "view_type"
   end
 
   add_index "tweets", ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at"
